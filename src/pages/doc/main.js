@@ -31,23 +31,18 @@ Vue.prototype.$qs = qs;
 
 Vue.config.productionTip = false;
 //为请求加token
-// axios.interceptors.request.use(
-//   config => {
-//     let authtoken = sessionStorage.getItem("access_token");
-//     // let xcode = sessionStorage.getItem("xcode");
-//     // alert(2);
-//     if (authtoken !== null) {
-//       config.headers.Authorization = authtoken;
-//     }
-//     // if (xcode) {
-//     //   config.headers["X-CARD-CODE"] = xcode;
-//     // }
-//     return config;
-//   },
-//   error => {
-//     return Promise.reject(error);
-//   }
-// );
+axios.interceptors.request.use(
+  config => {
+    let authtoken = sessionStorage.getItem("access_token");
+    if (authtoken !== null) {
+      config.headers.Authorization = authtoken;
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+);
 
 // 使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
