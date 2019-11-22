@@ -225,7 +225,7 @@ export default {
     },
     getDoctorAndPatients() {
       this.$ajax
-        .get("/api/v1/doctor1")
+        .get("/api/v1/login/info")
         .then(res => {
           window.console.log(res);
           this.department = res.data.department;

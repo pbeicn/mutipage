@@ -71,7 +71,7 @@ export default {
         department: "",
         location: "",
         grade: "主任医师",
-        roles: "1"
+        roles: "2"
       },
       name: "ss",
       tipinfo: ""
@@ -84,7 +84,7 @@ export default {
     regDoc() {
       window.console.log(this.user);
       this.$ajax
-        .put("/api/v1/user", this.user)
+        .put("/api/v1/register/user", this.user)
         .then(res => {
           window.console.log(res);
           this.tipinfo = res.data.message;
@@ -119,6 +119,7 @@ export default {
   flex-direction: row; /* 子元素横向排列 */
   justify-content: center; /* 相对父元素水平居中 */
   align-items: center; /*  子元素相对父元素垂直居中 */
+  min-height: 1250px;
 }
 .reg_h1 {
   margin-top: 50px;

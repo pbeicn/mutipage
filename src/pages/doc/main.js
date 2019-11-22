@@ -34,6 +34,7 @@ Vue.config.productionTip = false;
 axios.interceptors.request.use(
   config => {
     let authtoken = sessionStorage.getItem("access_token");
+    window.console.log(authtoken);
     if (authtoken !== null) {
       config.headers.Authorization = authtoken;
     }

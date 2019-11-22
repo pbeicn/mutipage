@@ -12,10 +12,16 @@
       </div>
       <div class="saoma">
         <div>
-          <a-input class="ainput" v-model="xcode" placeholder="请先扫获取患者授权，查询患者最近三次历史就诊记录" />
+          <a-input
+            class="ainput"
+            v-model="xcode"
+            placeholder="请先扫获取患者授权，查询患者最近三次历史就诊记录"
+          />
         </div>
         <div class="pname">
-          <a-button type="primary" @click="getRecentDiagnoseMock">扫码(Mock)</a-button>
+          <a-button type="primary" @click="getRecentDiagnoseMock"
+            >扫码(Mock)</a-button
+          >
         </div>
         <div class="pname">
           <a-button type="primary" @click="getRecentDiagnose">读卡</a-button>
@@ -65,8 +71,12 @@
                   :pagination="pagination"
                   :loading="loading"
                 >
-                  <template slot="money" slot-scope="text">￥{{ text }}</template>
-                  <template slot="allmoney" slot-scope="text">￥{{ text }}</template>
+                  <template slot="money" slot-scope="text"
+                    >￥{{ text }}</template
+                  >
+                  <template slot="allmoney" slot-scope="text"
+                    >￥{{ text }}</template
+                  >
                 </a-table>
                 <div class="recipeamount">
                   合计：
@@ -91,7 +101,11 @@
                   >
                     <div>
                       <img src="../../../assets/c1.png" />
-                      <div class="text">项目名称：{{ checks.description }}(费用:￥{{ checks.money }})</div>
+                      <div class="text">
+                        项目名称：{{ checks.description }}(费用:￥{{
+                          checks.money
+                        }})
+                      </div>
                     </div>
                     <div>
                       <img src="../../../assets/c2.png" />
@@ -207,7 +221,7 @@ export default {
     getDoctorAndPatients() {
       //查询医生信息
       this.$ajax
-        .get("/api/v1/doctor1")
+        .get("/api/v1/login/info")
         .then(res => {
           window.console.log(res);
           this.department = res.data.department;
