@@ -7,7 +7,8 @@
           <div class="title">问诊人员列表</div>
           <div class="count">
             当前挂号人数
-            <span style="color: #FF5B5B;font-size: 18px;" v-html="count"></span>人
+            <span style="color: #FF5B5B;font-size: 18px;" v-html="count"></span
+            >人
           </div>
         </div>
         <div class="divider"></div>
@@ -16,9 +17,11 @@
             v-for="(patient, index) in patients"
             :key="index"
             @click="onScanPatientCardQRCode"
-            :class="index===0?'patient':'patient1'"
+            :class="index === 0 ? 'patient' : 'patient1'"
           >
-            <div class="name">{{ patient.pname }}</div>
+            <div class="name">
+              {{ patient.pname }}<span class="cc">{{ patient.pidCard }}</span>
+            </div>
             <div class="sex-and-age">{{ patient.sex }} {{ patient.age }}</div>
             <div class="date">挂号时间：{{ patient.startTime }}</div>
           </div>
@@ -41,28 +44,49 @@
           <div class="diagnose">
             <div class="diagnose-info">
               <div class="title">诊断信息:</div>
-              <a-textarea placeholder="请输入诊断信息" :rows="6" v-model="diagnoseInfo" />
+              <a-textarea
+                placeholder="请输入诊断信息"
+                :rows="6"
+                v-model="diagnoseInfo"
+              />
             </div>
             <div class="diagnose-result">
               <div class="title">诊断结果:</div>
-              <a-textarea placeholder="请输入诊断结果" :rows="6" v-model="diagnoseResult" />
+              <a-textarea
+                placeholder="请输入诊断结果"
+                :rows="6"
+                v-model="diagnoseResult"
+              />
             </div>
           </div>
           <div class="btns">
-            <button class="button1" style="margin-right: 15px;" @click="saveDiagnoseInfo">保存诊断</button>
+            <button
+              class="button1"
+              style="margin-right: 15px;"
+              @click="saveDiagnoseInfo"
+            >
+              保存诊断
+            </button>
             <button
               class="button2"
               style="border:1px solid #0090FF;color:#0090FF"
               @click="finishDiagnoseInfo"
-            >结束诊断</button>
-            <button class="button3" style="margin-left: 15px;" @click="toSaoMa">开新诊断</button>
+            >
+              结束诊断
+            </button>
+            <button class="button3" style="margin-left: 15px;" @click="toSaoMa">
+              开新诊断
+            </button>
           </div>
         </div>
         <div class="bottom">
           <div class="btab">
             <a-tabs defaultActiveKey="1" @change="callback">
               <a-tab-pane tab="开处方" key="1">
-                <RecipeTable ref="recipe" @onCompleted="postRecipe"></RecipeTable>
+                <RecipeTable
+                  ref="recipe"
+                  @onCompleted="postRecipe"
+                ></RecipeTable>
               </a-tab-pane>
               <a-tab-pane tab="开检查" key="2" forceRender>
                 <CheckTable ref="check"></CheckTable>
@@ -320,6 +344,9 @@ export default {
 }
 .main_p1 {
   width: 10px;
+}
+.cc {
+  margin-left: 10px;
 }
 .a1 {
   width: 100px;

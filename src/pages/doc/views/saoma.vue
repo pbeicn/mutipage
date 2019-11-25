@@ -254,46 +254,49 @@ export default {
         this.error();
         return;
       }
-      this.$ajax
-        .get("/api/v1/diagnose/recent", {
-          headers: {
-            "X-CARD-CODE": this.xcode
-          }
-        })
-        .then(res => {
-          window.console.log(res);
-          this.recents = res.data;
-          if (this.recents.length > 0) {
-            this.checkdtos = res.data[0].checkDTOS;
-            this.getSingleMoney(res.data[0].recipe.medicine);
-          }
-        })
-        .catch(res => {
-          window.console.log(res);
-        });
-      this.$ajax
-        .post("/api/v1/diagnose", null, {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CARD-CODE": this.xcode
-          }
-        })
-        .then(res => {
-          window.console.log(res);
-          this.patient = res.data;
-          sessionStorage.setItem("pid", this.patient.id);
-          sessionStorage.setItem("patientage", this.patient.patientage);
-          sessionStorage.setItem("patientidcard", this.patient.patientidcard);
-          sessionStorage.setItem("patientname", this.patient.patientname);
-          sessionStorage.setItem("patientsex", this.patient.patientsex);
-          sessionStorage.setItem("xcode", this.xcode);
-          window.console.log(sessionStorage.getItem("pid"));
-          window.console.log(sessionStorage.getItem("xcode"));
-          window.console.log(sessionStorage.getItem("patientname"));
-        })
-        .catch(res => {
-          window.console.log(res);
-        });
+      this.$ajax.put("/api/v1/card/" + this.xcode).then(res => {
+        window.console.log(res);
+        this.$ajax
+          .get("/api/v1/diagnose/recent", {
+            headers: {
+              "X-CARD-CODE": this.xcode
+            }
+          })
+          .then(res => {
+            window.console.log(res);
+            this.recents = res.data;
+            if (this.recents.length > 0) {
+              this.checkdtos = res.data[0].checkDTOS;
+              this.getSingleMoney(res.data[0].recipe.medicine);
+            }
+          })
+          .catch(res => {
+            window.console.log(res);
+          });
+        this.$ajax
+          .post("/api/v1/diagnose", null, {
+            headers: {
+              "Content-Type": "application/json",
+              "X-CARD-CODE": this.xcode
+            }
+          })
+          .then(res => {
+            window.console.log(res);
+            this.patient = res.data;
+            sessionStorage.setItem("pid", this.patient.id);
+            sessionStorage.setItem("patientage", this.patient.patientage);
+            sessionStorage.setItem("patientidcard", this.patient.patientidcard);
+            sessionStorage.setItem("patientname", this.patient.patientname);
+            sessionStorage.setItem("patientsex", this.patient.patientsex);
+            sessionStorage.setItem("xcode", this.xcode);
+            window.console.log(sessionStorage.getItem("pid"));
+            window.console.log(sessionStorage.getItem("xcode"));
+            window.console.log(sessionStorage.getItem("patientname"));
+          })
+          .catch(res => {
+            window.console.log(res);
+          });
+      });
     },
     getSingleMoney(colsss) {
       for (let i = 0; i < colsss.length; i++) {
