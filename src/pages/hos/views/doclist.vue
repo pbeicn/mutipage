@@ -10,8 +10,8 @@
         </p>
       </a-col>
       <a-col :span="18">
-        <p class="height-50">
-          <span class="doch3">医生列表</span>
+        <p class="height-50 doch3">
+          医生列表
         </p>
       </a-col>
       <a-col :span="2">
@@ -75,15 +75,18 @@ export default {
     this.$ajax
       .get("/api/v1/doctor")
       .then(res => {
-        // window.console.log(res);
-        for (var i = 0; i < res.data.length; i++) {
-          let doc = res.data[i];
-          // window.console.log(doc.id);
+        window.console.log(res);
+        if (res.data.list) {
+          this.docs = res.data.list;
+        } else {
           this.docs = res.data;
-          if (i === 0) {
-            this.docname = doc.name;
-          }
         }
+        // for (var i = 0; i < res.data.length; i++) {
+        //   let doc = res.list.data[i];
+        //   if (i === 0) {
+        //     this.docname = doc.name;
+        //   }
+        // }
       })
       .catch(res => {
         window.console.log(res);
@@ -93,6 +96,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.bg {
+  background-color: red;
+}
 .doch1 {
   height: 100px;
   width: 100vw;
@@ -119,6 +125,7 @@ export default {
   font-weight: 600;
   color: rgba(255, 255, 255, 1);
   text-align: center;
+  margin-top: 20px;
 }
 
 .doch4 {
@@ -186,13 +193,15 @@ export default {
 
 .h10 {
   padding-left: 20px;
-  width: 296px;
+  width: 353px;
   height: 65px;
   font-size: 18px;
   font-family: PingFangSC-Regular, PingFangSC;
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
   line-height: 25px;
+  text-indent: 2em;
+  text-align: left;
 }
 
 .doch11 {

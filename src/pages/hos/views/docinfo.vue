@@ -10,8 +10,8 @@
         </p>
       </a-col>
       <a-col :span="18">
-        <p class="height-50">
-          <span class="doch3">扫码挂号</span>
+        <p class="height-100 doch3">
+          扫码挂号
         </p>
       </a-col>
       <a-col :span="2">
@@ -33,9 +33,9 @@
               <tr>
                 <td style="width:45%;height: 100%;">
                   <div class="row">
-                    <table style="width:100%;height: 100%;">
+                    <table style="width:100%;height: 100%;" border="0">
                       <tr>
-                        <td>
+                        <td align="center">
                           <div>
                             <img src="@/assets/h23.png" />
                           </div>
@@ -128,6 +128,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.bg {
+  background-color: red;
+}
+.bg1 {
+  background-color: blue;
+}
 .doch1 {
   height: 100px;
   width: 100vw;
@@ -154,6 +160,7 @@ export default {
   font-weight: 600;
   color: rgba(255, 255, 255, 1);
   text-align: center;
+  margin-top: 20px;
 }
 
 .doch4 {
@@ -205,34 +212,26 @@ export default {
 .infoh8 {
   /* width: 74px;
             height: 50px; */
-  font-size: 36px;
+  font-size: 24px;
   font-family: PingFangSC-Regular, PingFangSC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
   line-height: 50px;
+  text-indent: 2em;
+  margin-left: 80px;
 }
 
 .infoh9 {
-  white-space: nowrap;
-  height: 135px;
   font-size: 36px;
   font-family: PingFangSC-Regular, PingFangSC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 50px;
-  margin-top: 40px;
-  /* margin-left: 60px; */
 }
 
 .infoh10 {
-  white-space: nowrap;
-  height: 135px;
   font-size: 28px;
   font-family: PingFangSC-Regular, PingFangSC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 40px;
-  margin-top: 42px;
-  /*margin-left: 20px; */
 }
 </style>

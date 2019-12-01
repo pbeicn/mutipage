@@ -4,6 +4,7 @@ import router from "./router.js";
 import axios from "axios";
 import qs from "qs";
 import store from "./store";
+// import Mock from "./mock";
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -23,6 +24,7 @@ Vue.component("font-awesome-layers", FontAwesomeLayers);
 Vue.component("font-awesome-layers-text", FontAwesomeLayersText);
 
 Vue.use(Antd);
+// Vue.use(Mock);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.prototype.$ajax = axios;
 Vue.prototype.$qs = qs;
