@@ -182,7 +182,6 @@ export default {
 }
 
 .h9 {
-  width: 68px;
   height: 30px;
   font-size: 16px;
   font-family: PingFangSC-Regular, PingFangSC;
