@@ -51,8 +51,8 @@ Mock.mock("/api/v1/diagnose/recentaa", "get", {
             "patientName": "string",
             "patientSex": "string"
         },
-        "docname": "@CNAME",
-        "docdept|1": ['心内科丨副主任医师', '神经外科丨主任医师', '呼吸内科丨主治医师'],
+        "doctorName": "@CNAME",
+        "doctorDepartment|1": ['心内科丨副主任医师', '神经外科丨主任医师', '呼吸内科丨主治医师'],
         "result|1": ['诊断结果：感冒', '诊断结果：结膜炎', '诊断结果：肺炎'],
         "starttime": "@date(yyyy-MM-dd) @time(hh:mm:ss)",
         "state": "string",

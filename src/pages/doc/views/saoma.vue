@@ -41,9 +41,9 @@
           >
             <div>
               <div>
-                {{ recent.docname }}
+                {{ recent.doctorName }}
                 <span style="width:20px"></span>
-                {{ recent.docdept }}
+                {{ recent.doctorDepartment }}
               </div>
             </div>
             <div>
@@ -249,6 +249,8 @@ export default {
     },
     getRecentDiagnose() {
       this.recents = [];
+      this.recipedata = [];
+      this.checkdtos = [];
       if (this.xcode === "") {
         this.tipinfo = "输入患者二维码";
         this.error();
